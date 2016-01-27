@@ -166,13 +166,13 @@ def test_is_course_complete_should_give_true_if_there_was_no_recent_update():
 
 def test_correct_formatting_of_class_URL():
 
-    url = coursera_dl.get_syllabus_url('bob', False)
+    url = coursera_dl.OLD_get_syllabus_url('bob', False)
     assert 'https://class.coursera.org/bob/lecture/index' == url
 
 
 def test_correct_formatting_of_class_with_preview_URL():
 
-    url = coursera_dl.get_syllabus_url('bill', True)
+    url = coursera_dl.OLD_get_syllabus_url('bill', True)
     assert 'https://class.coursera.org/bill/lecture/preview' == url
 
 
@@ -211,6 +211,6 @@ def test_grab_hidden_video_url():
 
     page_text = open(filename).read()
     page_obj, session = get_mock_session(page_text)
-    p = coursera_dl.grab_hidden_video_url(session,
+    p = coursera_dl.OLD_grab_hidden_video_url(session,
                                           'http://www.hidden.video')
     assert 'video1.mp4' == p
