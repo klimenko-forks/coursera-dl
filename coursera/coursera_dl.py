@@ -454,14 +454,6 @@ def parse_args(args=None):
                              default=None,
                              help='coursera password')
 
-    group_basic.add_argument('--on-demand',
-                             dest='on_demand',
-                             action='store_true',
-                             default=False,
-                             help='[DEPRECATED] get on-demand videos. Do not use'
-                                  ' this option, it is deprecated. The script will'
-                                  ' try to detect course type automatically.')
-
     group_basic.add_argument('-b',  # FIXME: kill this one-letter option
                              '--preview',
                              dest='preview',
@@ -537,7 +529,6 @@ def parse_args(args=None):
                                 action='store',
                                 default='540p',
                                 help='video resolution to download (default: 540p); '
-                                     'only valid for on-demand courses; '
                                      'only values allowed: 360p, 540p, 720p')
 
     # Selection of material to download
@@ -816,10 +807,6 @@ def main():
     mkdir_p(PATH_CACHE, 0o700)
     if args.clear_cache:
         shutil.rmtree(PATH_CACHE)
-    if args.on_demand:
-        logging.warning('--on-demand option is deprecated and is not required'
-                        ' anymore. Do not use this option. It will be removed'
-                        'in the future.')
 
     for class_name in args.class_names:
         try:
