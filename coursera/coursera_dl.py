@@ -82,8 +82,8 @@ assert V(six.__version__) >= V('1.5'), "Upgrade six!" + _SEE_URL
 assert V(bs4.__version__) >= V('4.1'), "Upgrade bs4!" + _SEE_URL
 
 
-def get_on_demand_video_url(session, video_id, subtitle_language='en',
-                            resolution='540p'):
+def get_on_demand_video_url(session, video_id, subtitle_language='all',
+                            resolution='720p'):
     """
     Return the download URL of on-demand course video.
     """
@@ -328,7 +328,7 @@ def download_lectures(downloader,
                       intact_fnames=False,
                       ignored_formats=None,
                       resume=False,
-                      video_resolution='540p'):
+                      video_resolution='720p'):
     """
     Download lecture resources described by sections.
 
@@ -527,8 +527,8 @@ def parse_args(args=None):
     group_material.add_argument('--video-resolution',
                                 dest='video_resolution',
                                 action='store',
-                                default='540p',
-                                help='video resolution to download (default: 540p); '
+                                default='720p',
+                                help='video resolution to download (default: 720p); '
                                      'only values allowed: 360p, 540p, 720p')
 
     # Selection of material to download
